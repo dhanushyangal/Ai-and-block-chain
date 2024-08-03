@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Credit Scoring System</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Credit Scoring System</h1>
+        <form method="POST" action="/predict" enctype="multipart/form-data">
+            <label for="file">Upload CSV File:</label>
+            <input type="file" id="file" name="file" required>
+            <button type="submit">Predict Credit Scores</button>
+        </form>
+        {% if predictions %}
+        <div class="result">
+            <h2>Predicted Credit Scores</h2>
+            {{ predictions | safe }}
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
